@@ -127,7 +127,7 @@ const BrandCategory = ({ title, brands, index }) => {
         {brands.map((brand, i) => (
           <div
             key={i}
-            className="hover-glow"
+            className="hover-glow brand-logo"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.2)',
               borderRadius: '0.5rem',
@@ -149,7 +149,6 @@ const BrandCategory = ({ title, brands, index }) => {
                 transform: 'scale(1.05)',
               }
             }}
-            className="brand-logo"
           >
             <div style={{ textAlign: 'center' }}>
               {getBrandLogoUrl(brand) ? (
