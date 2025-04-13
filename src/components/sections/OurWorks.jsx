@@ -207,7 +207,7 @@ const OurWorks = () => {
                 alt={project.title}
                 style={{
                   width: '100%',
-                  height: '60%',
+                  height: '65%',
                   objectFit: 'cover',
                   flex: '0 0 auto',
                   '@media (max-width: 640px)': {
@@ -218,7 +218,7 @@ const OurWorks = () => {
               />
               <div style={{
                 padding: '1rem',
-                flex: '1 0 35%',
+                flex: '1 0 auto',
                 backgroundColor: 'rgba(0, 0, 0, 0.4)',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 display: 'flex',
@@ -231,7 +231,7 @@ const OurWorks = () => {
               }}>
                 <div>
                   <h3 style={{
-                    fontSize: '1.1rem',
+                    fontSize: '1.25rem',
                     fontWeight: 'bold',
                     marginBottom: '0.5rem',
                     color: 'white',
@@ -242,7 +242,7 @@ const OurWorks = () => {
                     }
                   }}>{project.title}</h3>
                   <p style={{
-                    fontSize: '0.9rem',
+                    fontSize: '1rem',
                     color: '#e5e7eb',
                     marginBottom: '0.75rem',
                     lineHeight: '1.4',
@@ -259,7 +259,7 @@ const OurWorks = () => {
                     backgroundColor: 'rgba(212, 175, 55, 0.4)',
                     color: 'var(--color-secondary)',
                     borderRadius: '9999px',
-                    fontSize: '0.85rem',
+                    fontSize: '0.9rem',
                     fontWeight: '600',
                     textTransform: 'capitalize',
                     textShadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
