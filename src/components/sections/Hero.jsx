@@ -16,7 +16,7 @@ const Hero = () => {
     <section
       id="home"
       ref={heroRef}
-      className="hero-section"
+      className="hero-section section-blur-bottom"
       style={{
         position: 'relative',
         minHeight: '100vh',
@@ -76,9 +76,11 @@ const Hero = () => {
             Transforming Spaces, <span style={{ color: 'var(--color-secondary)' }}>Elevating Lifestyles</span>
           </h1>
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(0.95rem, 4vw, 1.25rem)',
             color: '#e5e7eb',
-            marginBottom: '1.5rem'
+            marginBottom: '1.5rem',
+            maxWidth: '90%',
+            margin: '0 auto 1.5rem'
           }}>
             Complete interior solutions for residential and commercial spaces.
             We bring your vision to life with exceptional craftsmanship and attention to detail.

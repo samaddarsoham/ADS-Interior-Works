@@ -37,7 +37,7 @@ const CallToAction = () => {
   }, []);
 
   return (
-    <section style={{
+    <section className="section-blur-top" style={{
       padding: '5rem 0',
       backgroundColor: '#1a1a1a',
       backgroundImage: 'url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80")',

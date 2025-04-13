@@ -54,6 +54,14 @@ const getBrandLogoUrl = (brand) => {
 const BrandCategory = ({ title, brands, index }) => {
   const categoryRef = useRef(null);
 
+  // All categories will be displayed at 100% width
+  const getWidthStyle = () => {
+    return {
+      width: '100%',
+      marginBottom: '2rem'
+    };
+  };
+
   useEffect(() => {
     // Temporarily disable GSAP animations
     // gsap.registerPlugin(ScrollTrigger);
@@ -86,22 +94,40 @@ const BrandCategory = ({ title, brands, index }) => {
   }, [index]);
 
   return (
-    <div ref={categoryRef} style={{ marginBottom: '1rem' }}>
+    <div ref={categoryRef} style={{
+      marginBottom: '1rem',
+      ...getWidthStyle(),
+      '@media (max-width: 640px)': {
+        marginBottom: '0.5rem'
+      }
+    }}>
       <h3 style={{
         fontSize: '1.25rem',
         fontFamily: '"Playfair Display", serif',
         fontWeight: 'bold',
-        marginBottom: '1.5rem',
-        color: 'white'
+        marginBottom: '1rem',
+        color: 'white',
+        '@media (max-width: 640px)': {
+          fontSize: '1.1rem',
+          marginBottom: '0.75rem'
+        }
       }}>{title}</h3>
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '1.5rem'
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: '1.5rem',
+        '@media (max-width: 1024px)': {
+          gridTemplateColumns: 'repeat(3, 1fr)'
+        },
+        '@media (max-width: 640px)': {
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '0.75rem'
+        }
       }} className="brand-grid">
         {brands.map((brand, i) => (
           <div
             key={i}
+            className="hover-glow"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.2)',
               borderRadius: '0.5rem',
@@ -111,6 +137,10 @@ const BrandCategory = ({ title, brands, index }) => {
               alignItems: 'center',
               justifyContent: 'center',
               height: '6rem',
+              '@media (max-width: 640px)': {
+                height: '5rem',
+                padding: '0.75rem'
+              },
               transition: 'all 0.3s ease',
               backdropFilter: 'blur(10px)',
               WebkitBackdropFilter: 'blur(10px)',
@@ -247,7 +277,7 @@ const Materials = () => {
   ];
 
   return (
-    <section id="materials" style={{
+    <section id="materials" className="section-blur-top section-blur-bottom" style={{
       padding: '4rem 0',
       backgroundColor: '#1a1a1a',
       backgroundImage: 'url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80")',
@@ -297,14 +327,11 @@ const Materials = () => {
         </div>
 
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(1, 1fr)',
-          gap: '2rem',
-          '@media (min-width: 640px)': {
-            gridTemplateColumns: 'repeat(2, 1fr)'
-          },
-          '@media (min-width: 1024px)': {
-            gridTemplateColumns: 'repeat(3, 1fr)'
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          '@media (max-width: 640px)': {
+            gap: '0.5rem'
           }
         }} className="materials-grid">
           {brandCategories.map((category, index) => (

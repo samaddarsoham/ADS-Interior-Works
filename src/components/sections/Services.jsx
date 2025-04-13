@@ -25,13 +25,15 @@ const ServiceCategory = ({ id, title, items, image, index }) => {
   }, [index]);
 
   return (
-    <div id={id} ref={categoryRef} style={{
-      backgroundColor: 'rgba(255, 255, 255, 0.9)',
+    <div id={id} ref={categoryRef} className="hover-scale" style={{
+      backgroundColor: 'rgba(255, 255, 255, 0.05)',
       borderRadius: '0.5rem',
       boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
       overflow: 'hidden',
       marginBottom: '3rem',
-      backdropFilter: 'blur(10px)'
+      backdropFilter: 'blur(10px)',
+      WebkitBackdropFilter: 'blur(10px)',
+      border: '1px solid rgba(255, 255, 255, 0.2)'
     }}>
       <div style={{
         display: 'grid',
@@ -196,7 +198,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" style={{
+    <section id="services" className="section-blur-top section-blur-bottom" style={{
       padding: '4rem 0',
       backgroundColor: '#1a1a1a',
       backgroundImage: 'url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80")',

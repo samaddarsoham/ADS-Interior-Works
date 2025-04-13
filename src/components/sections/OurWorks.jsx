@@ -87,7 +87,7 @@ const OurWorks = () => {
   ];
 
   return (
-    <section id="our-works" style={{
+    <section id="our-works" className="section-blur-top section-blur-bottom" style={{
       padding: '4rem 0',
       backgroundColor: '#1a1a1a',
       backgroundImage: 'url("https://images.unsplash.com/photo-1618219944342-824e40a13285?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80")',
@@ -166,14 +166,15 @@ const OurWorks = () => {
         {/* Projects Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem',
+          gridTemplateColumns: 'repeat(1, 1fr)',
+          gap: '1.5rem',
           width: '100%',
           maxWidth: '1400px',
           margin: '0 auto',
           padding: '0 1rem',
           '@media (min-width: 640px)': {
-            gridTemplateColumns: 'repeat(3, 1fr)'
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '1.25rem'
           },
           '@media (min-width: 1024px)': {
             gridTemplateColumns: 'repeat(3, 1fr)',
@@ -183,8 +184,9 @@ const OurWorks = () => {
           {filteredProjects.map(project => (
             <div
               key={project.id}
+              className="hover-lift"
               style={{
-                backgroundColor: 'rgba(30, 30, 30, 0.7)',
+                backgroundColor: 'rgba(30, 30, 30, 0.3)',
                 borderRadius: '0.5rem',
                 overflow: 'hidden',
                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.2)',
@@ -205,50 +207,70 @@ const OurWorks = () => {
                 alt={project.title}
                 style={{
                   width: '100%',
-                  height: '65%',
+                  height: '60%',
                   objectFit: 'cover',
                   flex: '0 0 auto',
+                  '@media (max-width: 640px)': {
+                    height: '50%'
+                  },
                   borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               />
               <div style={{
-                padding: '0.75rem',
+                padding: '1rem',
                 flex: '1 0 35%',
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                backgroundColor: 'rgba(0, 0, 0, 0.4)',
                 borderTop: '1px solid rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                '@media (max-width: 640px)': {
+                  padding: '0.75rem',
+                  flex: '1 0 50%'
+                }
               }}>
                 <div>
                   <h3 style={{
-                    fontSize: '0.95rem',
+                    fontSize: '1.1rem',
                     fontWeight: 'bold',
                     marginBottom: '0.5rem',
                     color: 'white',
-                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)'
+                    textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
+                    '@media (max-width: 640px)': {
+                      fontSize: '0.9rem',
+                      marginBottom: '0.25rem'
+                    }
                   }}>{project.title}</h3>
                   <p style={{
-                    fontSize: '0.8rem',
+                    fontSize: '0.9rem',
                     color: '#e5e7eb',
-                    marginBottom: '0.5rem',
-                    lineHeight: '1.3',
-                    textShadow: '0 1px 1px rgba(0, 0, 0, 0.3)'
+                    marginBottom: '0.75rem',
+                    lineHeight: '1.4',
+                    textShadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
+                    '@media (max-width: 640px)': {
+                      fontSize: '0.8rem',
+                      marginBottom: '0.5rem',
+                      lineHeight: '1.3'
+                    }
                   }}>{project.description}</p>
-                </div>
-                <div style={{
-                  display: 'inline-block',
-                  padding: '0.2rem 0.5rem',
-                  backgroundColor: 'rgba(212, 175, 55, 0.3)',
-                  color: 'var(--color-secondary)',
-                  borderRadius: '9999px',
-                  fontSize: '0.75rem',
-                  fontWeight: '600',
-                  textTransform: 'capitalize',
-                  textShadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
-                  border: '1px solid rgba(212, 175, 55, 0.2)'
-                }}>
-                  {project.category}
+                  <div style={{
+                    display: 'inline-block',
+                    padding: '0.3rem 0.7rem',
+                    backgroundColor: 'rgba(212, 175, 55, 0.4)',
+                    color: 'var(--color-secondary)',
+                    borderRadius: '9999px',
+                    fontSize: '0.85rem',
+                    fontWeight: '600',
+                    textTransform: 'capitalize',
+                    textShadow: '0 1px 1px rgba(0, 0, 0, 0.3)',
+                    border: '1px solid rgba(212, 175, 55, 0.3)',
+                    '@media (max-width: 640px)': {
+                      padding: '0.2rem 0.5rem',
+                      fontSize: '0.75rem'
+                    }
+                  }}>
+                    {project.category}
+                  </div>
                 </div>
               </div>
             </div>
